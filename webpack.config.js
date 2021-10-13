@@ -9,6 +9,11 @@ const tsRule = {
   use: 'ts-loader',
 }
 
+const cssRule = {
+  test: /\.css$/,
+  use: ['style-loader', 'css-loader'],
+}
+
 const plugins = [
   new HTMLWebpackPlugin({
     template: './src/pages/Popup/index.html',
@@ -41,7 +46,7 @@ module.exports = {
     path: resolve(__dirname, 'dist'),
   },
   module: {
-    rules: [tsRule],
+    rules: [cssRule, tsRule],
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
